@@ -1,12 +1,10 @@
 .the-review {
   display: flex;
   flex-direction: column;
-  min-width: 300px;
-  min-height: 200px;
-  padding: 20px;
+  padding: var(--padding-l);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: var(--white);
 
   &__name {
     margin-bottom: var(--margin-l);

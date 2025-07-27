@@ -7,7 +7,7 @@ import OurReviews from "@components/section/ourReviews/OurReviews.vue";
   <main class="the-home">
     <MainSlider class="the-home__main-slider" />
     <OurDesigner />
-    <!-- <OurReviews /> -->
+    <OurReviews />
   </main>
 </template>
 <style src="./style.scss"></style>

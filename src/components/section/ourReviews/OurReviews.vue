@@ -51,11 +51,24 @@ import { Autoplay, Navigation } from "swiper/modules";
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         }"
-        :slides-per-view="2"
         :space-between="10"
         :loop="true"
         :speed="1500"
         :autoplay="{ delay: 5000, pauseOnMouseEnter: true }"
+        :breakpoints="{
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          1200: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+        }"
       >
         <SwiperSlide v-for="(review, index) in reviews" :key="index">
           <TheReview :review-name="review.name" :text="review.review" />
