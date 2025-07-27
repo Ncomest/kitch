@@ -4,6 +4,10 @@
   flex-direction: column;
   padding: var(--padding-xxl) 0;
 
+  @media (max-width: 425px) {
+    padding: var(--padding-s) ;
+  }
+
   &__main-slider {
     border-radius: 10px;
     overflow: hidden;
