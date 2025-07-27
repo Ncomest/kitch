@@ -1,0 +1,23 @@
+.the-review {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  min-height: 200px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+
+  &__name {
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+    flex: 1;
+  }
+}

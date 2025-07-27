@@ -1,0 +1,11 @@
+.the-home {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__main-slider {
+    border-radius: 10px;
+    overflow: hidden;
+    margin: var(--margin-xl) 0;
+  }
+}

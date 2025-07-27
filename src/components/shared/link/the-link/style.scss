@@ -1,0 +1,13 @@
+.the-link {
+  text-decoration: none;
+  color: inherit;
+
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weigth-m);
+
+  @media (max-width: 1200px) {
+    font-size: var(--font-size-l);
+  }
+
+
+}

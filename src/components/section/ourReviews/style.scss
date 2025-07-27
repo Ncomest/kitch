@@ -1,0 +1,20 @@
+.our-reviews {
+  padding: var(--padding-xl) var(--padding-l);
+  background-color: var(--white-dark);
+
+  &__title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+  }
+
+  &__swiper-wrapper {
+    position: relative;
+  }
+}
+
+.our-reviews__swiper {
+  padding: var(--padding-l);
+}

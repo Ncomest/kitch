@@ -1,0 +1,80 @@
+.our-designer {
+  padding: 30px 20px;
+  background-color: var(--white-dark);
+  border-radius: 5px;
+
+  &__container {
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: var(--font-size-xxxl);
+    font-weight: var(--font-weigth-l);
+    text-align: center;
+    margin-bottom: var(--margin-l);
+    color: var(--text-color);
+  }
+
+  &__card {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--gap-l);
+    background-color: var(--white);
+    padding: var(--padding-l);
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.designer-card {
+  display: flex;
+  flex: 1;
+
+  &__photo {
+    flex: 0 0 200px;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    flex: 1;
+    padding-left: var(--padding-l);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__name {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weigth-m);
+    margin-bottom: 16px;
+    color: #222;
+  }
+
+  &__skills {
+    font-size: 16px;
+    color: #555;
+  }
+
+  &__text {
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  &__list {
+    margin: 8px 0 0 0;
+    padding-left: 20px;
+    list-style-type: disc;
+
+    li {
+      margin-bottom: 6px;
+      color: #444;
+      font-size: 15px;
+    }
+  }
+}
