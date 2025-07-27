@@ -6,7 +6,7 @@
 
       <div class="our-designer__card designer-card">
         <div class="designer-card__photo">
-          <img src="/designer/designer.webp" alt="Фото дизайнера" />
+          <img src="/designer/designer_2.webp" alt="Фото дизайнера" />
         </div>
 
         <div class="designer-card__info">
