@@ -58,6 +58,10 @@
   --text-color: #333;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   max-width: 1280px;

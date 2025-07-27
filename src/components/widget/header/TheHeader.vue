@@ -10,11 +10,11 @@ const burger = useSidePanel();
   <div class="the-header">
     <TheLogo />
     <nav class="the-header__navbar">
-      <TheLink text="Заказать" />
-      <TheLink text="Каталог" />
-      <TheLink text="О нас" />
+      <TheLink text="Заказать" href="#post-order"/>
+      <TheLink text="Каталог" href="#catalog-kitchen" />
+      <TheLink text="О нас" href="#about-us"/>
     </nav>
-    <TheBurger class="the-header__burger" @click="burger.toggle()"/>
+    <TheBurger class="the-header__burger" @click="burger.toggle()" />
   </div>
 </template>
 <style src="./style.scss"></style>

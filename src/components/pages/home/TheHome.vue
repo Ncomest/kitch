@@ -3,6 +3,7 @@ import MainSlider from "@components/widget/slider/main-slider/MainSlider.vue";
 import OurDesigner from "@components/section/ourDesigner/OurDesigner.vue";
 import OurReviews from "@components/section/ourReviews/OurReviews.vue";
 import CatalogKitchen from "@components/shared/grid/catalog-kitchen/CatalogKitchen.vue";
+import KitchenForm from "@components/widget/forms/kitchen-form/KitchenForm.vue";
 </script>
 <template>
   <main class="the-home">
@@ -10,6 +11,7 @@ import CatalogKitchen from "@components/shared/grid/catalog-kitchen/CatalogKitch
     <OurDesigner />
     <OurReviews />
     <CatalogKitchen />
+    <KitchenForm />
   </main>
 </template>
 <style src="./style.scss"></style>

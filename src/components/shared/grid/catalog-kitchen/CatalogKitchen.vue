@@ -10,10 +10,9 @@ const images = [
 </script>
 
 <template>
-  <section class="catalog-kitchen">
+  <section class="catalog-kitchen" id="catalog-kitchen">
     <div class="catalog-kitchen__container">
-      <h2 class="catalog-kitchen__title">Каталог кухонь</h2>
-
+      <h2 class="catalog-kitchen__title" >Каталог кухонь</h2>
       <div class="catalog-kitchen__grid">
         <div class="catalog-kitchen__grid-item" v-for="image in images">
           <ImageWrapper :src="image.ktch" alt="name" :key="image.id" class="catalog-kitchen__grid-image"/>

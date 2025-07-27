@@ -1,6 +1,6 @@
 <script></script>
 <template>
-  <section class="our-designer">
+  <section class="our-designer" id="about-us">
     <div class="our-designer__container">
       <h2 class="our-designer__title">Наши дизайнеры</h2>
 

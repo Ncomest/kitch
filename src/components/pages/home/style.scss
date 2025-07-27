@@ -2,11 +2,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  padding: var(--padding-xxl) 0;
 
   &__main-slider {
     border-radius: 10px;
     overflow: hidden;
-    margin: var(--margin-xl) 0;
     width: 100%;
 
     @media (max-width: 768px) {
