@@ -1,9 +1,7 @@
 <script setup>
 import MainSlider from "@components/widget/slider/main-slider/MainSlider.vue";
 import OurDesigner from "@components/section/ourDesigner/OurDesigner.vue";
-import OurReviews from "@components/section/ourReviews/ourReviews.vue";
-
-
+import OurReviews from "@components/section/ourReviews/OurReviews.vue";
 </script>
 <template>
   <main class="the-home">

@@ -1,7 +1,6 @@
 <script setup>
 import TheReview from "@components/shared/review/TheReview.vue";
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/scss/navigation";
 import "swiper/css/scrollbar";
 
