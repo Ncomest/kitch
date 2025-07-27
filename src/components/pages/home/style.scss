@@ -7,5 +7,14 @@
     border-radius: 10px;
     overflow: hidden;
     margin: var(--margin-xl) 0;
+    width: 100%;
+
+    @media (max-width: 768px) {
+      height: 380px;
+    }
+
+    @media (max-width: 425px) {
+      height: 420px;
+    }
   }
 }

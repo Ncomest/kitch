@@ -3,6 +3,10 @@
   background-color: var(--white-dark);
   border-radius: 5px;
 
+  @media (max-width: 425px) {
+      padding: 0;
+    }
+
   &__container {
     margin: 0 auto;
   }
@@ -23,6 +27,10 @@
     padding: var(--padding-l);
     border-radius: 5px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    @media (max-width: 425px) {
+      padding: var(--padding-s);
+    }
   }
 }
 
@@ -30,8 +38,21 @@
   display: flex;
   flex: 1;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    row-gap: var(--gap-l);
+  }
+
   &__photo {
     flex: 0 0 250px;
+
+    @media (max-width: 768px) {
+      width: 300px;
+    }
+
+    @media (max-width: 425px) {
+      align-self: center;
+    }
 
     img {
       width: 100%;
@@ -47,6 +68,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media (max-width: 768px) {
+      padding-left: 0;
+    }
   }
 
   &__name {
