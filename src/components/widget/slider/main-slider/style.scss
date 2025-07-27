@@ -1,7 +1,11 @@
 .swiper {
-
   &__image-wrapper {
     height: 450px;
     border-radius: 5px;
   }
+}
+
+.swiper-pagination-bullet {
+  background-color: (var(--white-dark));
+  border: 1px solid var(--dark-gray);
 }

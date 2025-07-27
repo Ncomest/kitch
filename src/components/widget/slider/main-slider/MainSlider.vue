@@ -9,7 +9,14 @@ import { Autoplay, Pagination } from "swiper/modules";
 import ImageWrapper from "@components/shared/image-wrapper/ImageWrapper.vue";
 import kitchenImage from "/classic/kitchen-one.webp";
 
-const slides = ref([]);
+const slides = [
+  { ktch: "/classic/kitchen-one.webp", id: 1 },
+  { ktch: "/classic/kitchen_2.webp", id: 2 },
+  { ktch: "/classic/kitchen_3.webp", id: 3 },
+  { ktch: "/classic/kitchen_4.webp", id: 4 },
+];
+
+// const slides = ref([]);
 const swiperRef = ref(null);
 </script>
 
@@ -24,9 +31,9 @@ const swiperRef = ref(null);
       :speed="1500"
       :autoplay="{ delay: 5000 }"
     >
-      <SwiperSlide v-for="i in 4" :key="i">
+      <SwiperSlide v-for="i in slides" :key="i.id">
         <ImageWrapper
-          src="/classic/kitchen-one.webp"
+          :src="i.ktch"
           alt="Kitchen"
           class="swiper__image-wrapper"
         />
