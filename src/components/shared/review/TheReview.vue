@@ -1,14 +1,16 @@
 <script setup>
+import ImageWrapper from "@components/shared/image-wrapper/ImageWrapper.vue";
+
 defineProps({
-  text: { type: String, required: true },
-  reviewName: { type: String, required: true },
+  item: { type: Object, required: true },
 });
 </script>
 <template>
   <div class="the-review">
-    <h3 class="the-review__name">{{ reviewName }}</h3>
+    <ImageWrapper :src="item.ktch" :alt="item.name" class="the-review__image"/>
+    <h3 class="the-review__name">{{ item.name }}</h3>
     <p class="the-review__text">
-      {{ text }}
+      {{ item.review }}
     </p>
   </div>
 </template>

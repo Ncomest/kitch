@@ -5,15 +5,22 @@
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   background-color: var(--white);
+  row-gap: var(--gap-l);
+
+  &__image {
+    height: 240px;
+
+    @media (max-width: 425px) {
+      height: 200px;
+    }
+  }
 
   &__name {
-    margin-bottom: var(--margin-l);
     font-size: var(--font-size-l);
     font-weight: var(--font-weigth-m);
   }
 
   &__text {
-    // margin: 0;
     line-height: 1.1;
     font-size: var(--font-size-m);
     color: var(--dark-gray);
