@@ -5,6 +5,11 @@
   background-color: #f9f9f9;
   border-radius: 12px;
   font-family: Arial, sans-serif;
+  row-gap: var(--gap-l);
+
+  @media (max-width: 425px) {
+    padding: var(--padding-xs);
+  }
 
   &__title {
     font-size: var(--font-size-xxxl);
@@ -26,10 +31,16 @@
 
   &__content-left {
     flex: 1;
+    background-color: var(--white);
+    padding: var(--padding-m);
+    border-radius: 5px;
   }
 
   &__content-right {
     width: 400px;
+    background-color: var(--white);
+    padding: var(--padding-m);
+    border-radius: 5px;
 
     @media (max-width: 768px) {
       width: 100%;

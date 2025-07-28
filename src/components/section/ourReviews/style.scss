@@ -1,6 +1,8 @@
 .our-reviews {
   padding: var(--padding-xl) var(--padding-l);
+  margin: var(--margin-l) 0;
   background-color: var(--white-dark);
+  border-radius: 5px;
 
   &__title {
     font-size: var(--font-size-xxxl);
