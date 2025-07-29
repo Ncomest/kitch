@@ -2,7 +2,6 @@
 
 <template>
   <section id="post-order">
-    <h2 class="kitchen-form__title">Сделать заявку</h2>
     <form class="kitchen-form" enctype="multipart/form-data">
       <div class="kitchen-form__content">
         <div class="kitchen-form__content-left">

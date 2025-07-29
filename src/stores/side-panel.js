@@ -14,5 +14,8 @@ export const useSidePanel = defineStore("side-panel", {
     close() {
       this.burger.isOpen = false;
     },
+    open() {
+      this.burger.isOpen = true;
+    },
   },
 });

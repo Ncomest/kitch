@@ -2,23 +2,17 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: var(--padding-xxl) 0;
+  padding: var(--padding-xxl) var(--padding-l);
+  row-gap: var(--gap-xxl);
 
   @media (max-width: 425px) {
     padding: var(--padding-s) ;
+    row-gap: var(--gap-l);
   }
 
   &__main-slider {
     border-radius: 10px;
     overflow: hidden;
     width: 100%;
-
-    @media (max-width: 768px) {
-      height: 380px;
-    }
-
-    @media (max-width: 425px) {
-      height: 420px;
-    }
   }
 }

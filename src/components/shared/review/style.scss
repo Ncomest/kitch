@@ -2,22 +2,20 @@
   display: flex;
   flex-direction: column;
   padding: var(--padding-l);
-  border-radius: 12px;
+  border-radius: 5px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   background-color: var(--white);
   row-gap: var(--gap-l);
-
-  &__image {
-    height: 240px;
-
-    @media (max-width: 425px) {
-      height: 200px;
-    }
-  }
-
+ 
   &__name {
     font-size: var(--font-size-l);
     font-weight: var(--font-weigth-m);
+  }
+
+  &__price {
+    font-size: var(--font-size-s);
+    color: var(--dark-gray);
+    opacity: 0.5;
   }
 
   &__text {

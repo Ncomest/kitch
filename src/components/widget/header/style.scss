@@ -44,4 +44,10 @@
       margin-left: auto;
     }
   }
+
+  &__cross-close {
+    background-color: transparent;
+    outline: none;
+    border: none;
+  }
 }

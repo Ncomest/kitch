@@ -1,6 +1,8 @@
 .image-wrapper {
   border-radius: 5px;
   overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 10;
 
   &__image {
     height: 100%;
