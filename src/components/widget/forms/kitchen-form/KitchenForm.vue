@@ -1,11 +1,78 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+import CustopDropDown from "@/components/shared/drop-down/custom-drop-down/CustopDropDown.vue";
+import question from "@/json/ask-question.json";
+
+const importQuestion = ref(question);
+const questionData = ref({});
+
+const handleAnswer = (question, answer) => {
+  questionData.value[question] = answer;
+};
+
+const contactData = ref({
+  firstName: "",
+  lastName: "",
+  phone: "",
+  projectFile: null,
+});
+
+const handleFileUpload = (e) => {
+  contactData.value.projectFile = e.target.files[0];
+};
+
+const submitForm = () => {
+  if (!/^[\d\+][\d\(\)\ -]{10,11}\d$/.test(contactData.value.phone)) {
+    alert("Введите корректный номер телефона 8 (900) 000 00 00*");
+    return;
+  }
+
+  const formData = new FormData();
+
+  formData.append("firstName", contactData.value.firstName);
+  formData.append("lastName", contactData.value.lastName);
+  formData.append("phone", contactData.value.phone);
+  formData.append("projectFile", contactData.value.projectFile);
+
+  // console.log(questionData.value);
+  for (const [key, value] of Object.entries(questionData.value)) {
+    formData.append(key, value);
+  }
+
+  for (const [key, value] of formData.entries()) {
+    console.log(key, value);
+  }
+
+  // TODO: отправка ...
+
+  contactData.value = {
+    firstName: "",
+    lastName: "",
+    phone: "",
+    projectFile: null,
+  };
+};
+</script>
 
 <template>
   <section id="post-order">
-    <form class="kitchen-form" enctype="multipart/form-data">
+    <form
+      class="kitchen-form"
+      enctype="multipart/form-data"
+      @submit.prevent="submitForm"
+    >
       <div class="kitchen-form__content">
         <div class="kitchen-form__content-left">
-          <fieldset class="kitchen-form__section">
+          <CustopDropDown
+            v-for="item in importQuestion"
+            :question="item.question"
+            :list="item.ask"
+            :key="item.question"
+            :modelValue="item.answer"
+            @update:modelValue="(value) => handleAnswer(item.question, value)"
+          />
+          <!-- <fieldset class="kitchen-form__section">
             <legend class="kitchen-form__legend">1. Форма кухни?</legend>
             <label class="kitchen-form__option">
               <input
@@ -138,7 +205,7 @@
               />
               От 500 и выше
             </label>
-          </fieldset>
+          </fieldset> -->
         </div>
 
         <div class="kitchen-form__content-right">
@@ -149,6 +216,7 @@
               name="firstName"
               placeholder="Имя*"
               class="kitchen-form__input"
+              v-model="contactData.firstName"
               required
             />
             <input
@@ -156,24 +224,26 @@
               name="lastName"
               placeholder="Фамилия*"
               class="kitchen-form__input"
+              v-model="contactData.lastName"
               required
             />
             <input
               type="tel"
               name="phone"
-              placeholder="Телефон*"
+              placeholder="8 (900) 000 00 00*"
               class="kitchen-form__input"
+              v-model="contactData.phone"
               required
             />
           </fieldset>
 
           <div class="kitchen-form__section">
             <label class="kitchen-form__file-label">
-              Прикрепить свой проект:
               <input
                 type="file"
                 name="projectFile"
                 class="kitchen-form__file"
+                @change="handleFileUpload"
               />
             </label>
           </div>

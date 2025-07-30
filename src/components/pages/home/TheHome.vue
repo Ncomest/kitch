@@ -6,6 +6,7 @@ import CatalogKitchen from "@components/shared/grid/catalog-kitchen/CatalogKitch
 import KitchenForm from "@components/widget/forms/kitchen-form/KitchenForm.vue";
 import TheContainer from "@components/shared/container/TheContainer.vue";
 import TheOrder from "@/components/widget/order/TheOrder.vue";
+import CustopDropDown from "@/components/shared/drop-down/custom-drop-down/CustopDropDown.vue";
 </script>
 <template>
   <main class="the-home">
@@ -28,6 +29,7 @@ import TheOrder from "@/components/widget/order/TheOrder.vue";
     <TheContainer title="Сделать заявку">
       <KitchenForm />
     </TheContainer>
+
   </main>
 </template>
 <style src="./style.scss"></style>
