@@ -4,6 +4,7 @@ import TheHeader from "@components/widget/header/TheHeader.vue";
 import SidePanelBurger from "@components/widget/side-panel-burger/SidePanelBurger.vue";
 import SidePanel from "@components/shared/side-panel/SidePanel.vue";
 import { useSidePanel } from "./stores/side-panel";
+import TheFooter from "./components/widget/footer/TheFooter.vue";
 
 const sidePanel = useSidePanel();
 </script>
@@ -21,6 +22,8 @@ const sidePanel = useSidePanel();
   </transition>
 
   <TheHome />
+
+  <TheFooter />
 </template>
 
 <style src="./style.scss"></style>

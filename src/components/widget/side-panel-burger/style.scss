@@ -1,7 +1,28 @@
 .side-panel-burger {
   display: flex;
   flex-direction: column;
-  row-gap: var(--gap-xl);
-  padding: var(--padding-l) var(--padding-s);
-  
+  row-gap: var(--gap-l);
+  padding: var(--padding-l) var(--padding-l);
+
+  &__title {
+    font-size: var(--font-size-xl);
+  }
+
+  &__defis {
+    height: 2px;
+    width: 90%;
+    background-color: var(--light-gray);
+  }
+
+  &__meta-container{
+    display: flex;
+    align-items: center;
+    column-gap: var(--gap-s);
+  }
+
+  &__link {
+    text-decoration: none;
+    color: rgb(92, 94, 102);
+    font-weight: var(--font-weigth-m);
+  }
 }
