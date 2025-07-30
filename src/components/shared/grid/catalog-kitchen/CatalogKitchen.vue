@@ -83,7 +83,7 @@ const kitchens = [
     <Swiper
       :modules="[Autoplay, Navigation]"
       :speed="1500"
-      :autoplay="{ delay: 25000, pauseOnMouseEnter: true }"
+      :autoplay="{ delay: 8000, pauseOnMouseEnter: true }"
       :space-between="10"
       :loop="true"
       :navigation="{
