@@ -7,7 +7,7 @@ import { onMounted, ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, Pagination } from "swiper/modules";
 import ImageWrapper from "@components/shared/image-wrapper/ImageWrapper.vue";
-import kitchenImage from "/classic/kitchen-one.webp";
+
 
 const slides = [
   { ktch: "/classic/kitchen-one.webp", id: 1 },

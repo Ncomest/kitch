@@ -2,6 +2,7 @@
 <template>
   <section class="the-order">
     <div class="the-order__overlay"></div>
+    <!-- <img src="/images/girl.webp" alt="girl" class="the-order__girl"></img> -->
     <a href="#post-order" class="the-order__button">
       Заказать проект
       <svg fill="currentColor" viewBox="0 0 24 24" class="the-order__icon">

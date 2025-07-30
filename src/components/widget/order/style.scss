@@ -17,6 +17,12 @@
     border-radius: var(--border-radius-s);
   }
 
+  // &__girl {
+  //   position: absolute;
+  //   top: 10px;
+  //   left: 10px;
+  // }
+
   &__overlay {
     position: absolute;
     top: 0;
@@ -31,6 +37,7 @@
         rgba(0, 0, 0, 0.9) 100%
       ),
       url("/public/classic/kitchen_5.webp");
+      // url("/classic/girl_on_kitchen.png");
 
     @media (max-width: 425px) {
       display: none;

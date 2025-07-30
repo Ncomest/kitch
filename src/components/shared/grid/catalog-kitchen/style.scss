@@ -13,19 +13,20 @@
   &__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--gap-xxl) var(--gap-xl);
+    gap: var(--gap-l) 0;
 
     @media (max-width: 425px) {
       display: flex;
       flex-direction: column;
       padding: var(--padding-xs);
-      // gap: var(--gap-xl);
     }
   }
 
   &__grid-item {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
+
+    margin-inline: 20px;
 
     &__label {
       position: absolute;
