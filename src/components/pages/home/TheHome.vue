@@ -9,14 +9,17 @@ import TheContainer from "@components/shared/container/TheContainer.vue";
 <template>
   <main class="the-home">
     <MainSlider class="the-home__main-slider" />
+    
+    <TheContainer title="Каталог кухонь">
+      <CatalogKitchen />
+    </TheContainer>
+    
     <TheContainer title="Наши дизайнеры">
       <OurDesigner />
     </TheContainer>
+
     <TheContainer title="Отзывы">
       <OurReviews />
-    </TheContainer>
-    <TheContainer title="Каталог кухонь">
-      <CatalogKitchen />
     </TheContainer>
 
     <TheContainer title="Сделать заявку">
