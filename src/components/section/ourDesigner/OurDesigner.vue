@@ -10,29 +10,29 @@
         <h3 class="designer-card__name">Кристина Палютина</h3>
         <div class="designer-card__skills">
           <p class="designer-card__text">
-            <strong>Специализация:</strong> дизайн кухонь под заказ, планировка
+            <span>Специализация:</span> дизайн кухонь под заказ, планировка
             и эргономика, подбор материалов и фурнитуры, визуализация проектов.
           </p>
 
           <p class="designer-card__text">
-            <strong>Опыт работы:</strong> более 7 лет в сфере интерьерного
+            <span>Опыт работы:</span> более 7 лет в сфере интерьерного
             дизайна, более 150 реализованных проектов кухонь — от компактных
             студий до премиальных решений.
           </p>
 
           <p class="designer-card__text">
-            <strong>Профессиональные навыки:</strong> разработка функциональных
+            <span>Профессиональные навыки:</span> разработка функциональных
             и эстетичных решений, работа с индивидуальными заказами,
             сопровождение клиента от идеи до монтажа.
           </p>
 
           <p class="designer-card__text">
-            <strong>Используемые программы:</strong> AutoCAD, SketchUp, 3ds Max
+            <span>Используемые программы:</span> AutoCAD, SketchUp, 3ds Max
             + V-Ray, Blender, Adobe Photoshop, Figma.
           </p>
 
           <div class="designer-card__text">
-            <strong>Повышение квалификации:</strong>
+            <span>Повышение квалификации:</span>
             <ul class="designer-card__list">
               <li>
                 Курс «Профессиональный дизайн кухонь» — Итальянская школа
@@ -45,7 +45,7 @@
           </div>
 
           <div class="designer-card__text">
-            <strong>Участие в конференциях:</strong>
+            <span>Участие в конференциях:</span>
             <ul class="designer-card__list">
               <li>Kitchen Design Expo (Берлин, 2023)</li>
               <li>Interior & Decor Forum (Санкт-Петербург, 2024)</li>
@@ -53,7 +53,7 @@
           </div>
 
           <div class="designer-card__text">
-            <strong>Награды:</strong>
+            <span>Награды:</span>
             <ul class="designer-card__list">
               <li>
                 Победитель конкурса «Лучшая кухня года» от журнала *Interior+*,

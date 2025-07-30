@@ -87,6 +87,12 @@
   &__text {
     margin-bottom: 8px;
     line-height: 1.5;
+    color: var(--dark-gray);
+
+    > span {
+      color: var(--black);
+      font-weight: var(--font-weigth-m);
+    }
   }
 
   &__list {
