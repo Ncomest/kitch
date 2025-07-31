@@ -1,12 +1,32 @@
 <script setup>
-import { computed, ref } from "vue";
-
+import { computed, onUnmounted, ref } from "vue";
 
 import question from "@/json/ask-question.json";
 import CustomDropDown from "@/components/shared/drop-down/custom-drop-down/CustomDropDown.vue";
 
 const importQuestion = ref(question);
 const questionData = ref({});
+const isPopupOpen = ref(false);
+const popUpMessage = ref("");
+const isOkRes = ref(null);
+const phoneTouched = ref(false);
+let timeoutID = null;
+
+const showPopUpMessage = (message, state) => {
+  popUpMessage.value = message;
+  isPopupOpen.value = true;
+  isOkRes.value = state;
+
+  if (timeoutID) clearTimeout(timeoutID);
+
+  timeoutID = setTimeout(() => {
+    isPopupOpen.value = false;
+  }, 3000);
+};
+
+onUnmounted(() => {
+  if (timeoutId) clearTimeout(timeoutId);
+});
 
 const handleAnswer = (question, answer) => {
   questionData.value[question] = answer;
@@ -18,8 +38,6 @@ const contactData = ref({
   phone: "",
   projectFile: null,
 });
-
-const phoneTouched = ref(false);
 
 const formatPhone = () => {
   let digits = contactData.value.phone.replace(/\D/g, "");
@@ -47,12 +65,6 @@ const formatPhone = () => {
   contactData.value.phone = formatted;
 };
 
-// Проверка на правильный формат: +7 и 10 цифр
-// const isValid = computed(() => {
-//   return /^\+7\d{10}$/.test(contactData.value.phone);
-// });
-
-// Проверка: номер должен быть в формате +7 (XXX) XXX-XX-XX
 const isValid = computed(() => {
   return /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(contactData.value.phone);
 });
@@ -63,13 +75,7 @@ const handleFileUpload = (e) => {
 
 const submitForm = async () => {
   try {
-    // if (!/^[\d\+][\d\(\)\ -]{10,11}\d$/.test(contactData.value.phone)) {
-    //   alert("Введите корректный номер телефона 8 (900) 000 00 00*");
-    //   return;
-    // }
-
     const formData = new FormData();
-
     const formKitchen = [];
 
     formData.append("firstName", contactData.value.firstName);
@@ -101,8 +107,12 @@ const submitForm = async () => {
 
     const data = await response.json();
     console.log("Сервер получил данные:", data.message);
+
+    if (data)
+      showPopUpMessage("Заявка отправлена, с Вами скоро свяжутся!", true);
   } catch (error) {
     console.error("Ошибка при отправке формы:", error.message);
+    if (error) showPopUpMessage("Упс...Что-то пошло не так!", false);
   } finally {
     contactData.value = {
       firstName: "",
@@ -110,6 +120,9 @@ const submitForm = async () => {
       phone: "",
       projectFile: null,
     };
+
+    questionData.value = {};
+    phoneTouched.value = false;
   }
 };
 </script>
@@ -117,6 +130,55 @@ const submitForm = async () => {
 <template>
   <section class="kitchen-form-section">
     <h2 class="kitchen-form-section__hidden-anchor" id="post-order"></h2>
+
+    <transition name="show">
+      <div class="kitchen-form-section__popup" v-show="isPopupOpen">
+        <div class="kitchen-form-section__popup-container">
+          <span
+            ><svg
+              v-if="isOkRes"
+              width="40px"
+              height="40px"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path fill="currentColor" d="M0 0h24v24H0z" />
+                <path
+                  d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-.997-4L6.76 11.757l1.414-1.414 2.829 2.829 5.656-5.657 1.415 1.414L11.003 16z"
+                  fill="green"
+                />
+              </g>
+            </svg>
+            <svg
+              v-else="isOkRes"
+              width="40px"
+              height="40px"
+              fill="red"
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 512 512"
+              enable-background="new 0 0 512 512"
+              xml:space="preserve"
+            >
+              <polygon
+                points="335.188,154.188 256,233.375 176.812,154.188 154.188,176.812 233.375,256 154.188,335.188 176.812,357.812 
+	256,278.625 335.188,357.812 357.812,335.188 278.625,256 357.812,176.812 "
+              />
+              <path
+                d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472
+	c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"
+                fill="red"
+              />
+            </svg>
+          </span>
+          <h3 class="kitchen-form-section__popup-title">{{ popUpMessage }}</h3>
+        </div>
+      </div>
+    </transition>
+
     <form
       class="kitchen-form"
       enctype="multipart/form-data"
@@ -130,7 +192,7 @@ const submitForm = async () => {
             :question="item.question"
             :list="item.ask"
             :key="item.question"
-            :modelValue="item.answer"
+            :modelValue="questionData[item.question] ?? null"
             @update:modelValue="(value) => handleAnswer(item.question, value)"
           />
         </div>

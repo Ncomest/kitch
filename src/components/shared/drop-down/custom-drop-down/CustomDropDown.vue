@@ -10,13 +10,14 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 const isHidden = ref(true);
-const selectedValue = ref(props.modelValue || props.question);
+const selectedValue = ref(props.question);
 
 watch(
   () => props.modelValue,
   (newValue) => {
-    selectedValue.value = newValue || props.question;
-  }
+    selectedValue.value = newValue ?? props.question;
+  },
+  { immediate: true }
 );
 
 const handlePick = (item) => {
@@ -24,7 +25,6 @@ const handlePick = (item) => {
   isHidden.value = true;
   emit("update:modelValue", item);
 };
-
 </script>
 <template>
   <div class="custom-select">

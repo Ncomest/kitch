@@ -1,3 +1,18 @@
+.show-enter-active,
+.show-leave-active {
+  transition: opacity 0.8s ease;
+}
+
+.show-enter-from,
+.show-leave-to {
+  opacity: 0;
+}
+
+.show-enter-to,
+.show-leave-from {
+  opacity: 1;
+}
+
 .kitchen-form {
   display: flex;
   flex-direction: column;
@@ -186,5 +201,37 @@
     @media (max-width: 768px) {
       top: -120px;
     }
+  }
+
+  &__popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    max-width: 300px;
+    width: 100%;
+    background-color: var(--white-dark);
+    padding: 20px 40px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  &__popup-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+
+    & > span {
+      color: transparent;
+    }
+  }
+
+  &__popup-title {
+    font-weight: var(--font-weigth-s);
+    font-size: var(--font-size-m);
+    text-wrap: nowrap;
   }
 }
