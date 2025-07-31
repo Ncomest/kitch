@@ -6,12 +6,13 @@ import SidePanel from "@components/shared/side-panel/SidePanel.vue";
 import { useSidePanel } from "./stores/side-panel";
 import TheFooter from "./components/widget/footer/TheFooter.vue";
 
+
 const sidePanel = useSidePanel();
+
 </script>
 
 <template>
   <TheHeader />
-
   <transition name="slide">
     <SidePanel
       v-if="sidePanel.burger.isOpen"

@@ -1,11 +1,12 @@
 .kitchen-form {
   display: flex;
   flex-direction: column;
-  padding: var(--padding-xl);
+  padding: 0 var(--padding-xl);
   background-color: #f9f9f9;
   border-radius: 12px;
   font-family: Arial, sans-serif;
   row-gap: var(--gap-l);
+  position: relative;
 
   @media (max-width: 1024px) {
     padding: var(--padding-l);
@@ -101,6 +102,11 @@
     }
   }
 
+  &__number-error {
+    font-size: var(--font-size-s);
+    color: var(--errors-light);
+  }
+
   &__file {
     position: relative;
     width: 100%;
@@ -165,6 +171,20 @@
 
     &:hover {
       background-color: #0056b3;
+    }
+  }
+}
+
+.kitchen-form-section {
+  position: relative;
+
+  &__hidden-anchor {
+    position: absolute;
+    top: -160px;
+    left: 0;
+
+    @media (max-width: 768px) {
+      top: -120px;
     }
   }
 }

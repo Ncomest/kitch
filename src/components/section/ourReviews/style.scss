@@ -18,7 +18,7 @@
 }
 
 .our-reviews__swiper {
-  padding: var(--padding-s);
+  padding: var(--padding-s) var(--padding-s) var(--padding-m);
 
   @media (max-width: 768px) {
     padding: 0;

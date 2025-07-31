@@ -1,11 +1,11 @@
 .the-link {
   text-decoration: none;
-  color: rgb(23, 23, 23);
+  color: rgb(66, 66, 66);
 
   font-size: var(--font-size-xl);
   font-weight: var(--font-weigth-m);
 
-  transition: color .3s ease;
+  transition: color 0.3s ease;
 
   &:hover {
     color: var(--dark-gray);

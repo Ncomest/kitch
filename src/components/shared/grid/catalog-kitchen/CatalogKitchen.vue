@@ -79,7 +79,8 @@ const kitchens = [
 </script>
 
 <template>
-  <section class="catalog-kitchen" id="catalog-kitchen">
+  <section class="catalog-kitchen">
+    <h2 class="catalog-kitchen__hidden-anchor" id="catalog-kitchen"></h2>
     <Swiper
       :modules="[Autoplay, Navigation]"
       :speed="1500"

@@ -6,24 +6,26 @@ const sidePanel = useSidePanel();
 </script>
 <template>
   <div class="side-panel-burger">
-    <TheLink
-      text="Заказать кухню"
-      href="#post-order"
-      class="side-panel-burger__title"
-      @click="sidePanel.close()"
-    />
-    <TheLink
-      text="Каталог кухонь"
-      href="#catalog-kitchen"
-      class="side-panel-burger__title"
-      @click="sidePanel.close()"
-    />
-    <TheLink
-      text="Наши дизайнеры"
-      href="#about-us"
-      class="side-panel-burger__title"
-      @click="sidePanel.close()"
-    />
+    <div class="side-panel-burger__menu-container">
+      <TheLink
+        text="Заказать кухню"
+        href="#post-order"
+        class="side-panel-burger__title"
+        @click="sidePanel.close()"
+      />
+      <TheLink
+        text="Каталог кухонь"
+        href="#catalog-kitchen"
+        class="side-panel-burger__title"
+        @click="sidePanel.close()"
+      />
+      <TheLink
+        text="Наши дизайнеры"
+        href="#about-us"
+        class="side-panel-burger__title"
+        @click="sidePanel.close()"
+      />
+    </div>
     <span class="side-panel-burger__defis"></span>
 
     <div class="side-panel-burger__meta-container">

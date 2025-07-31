@@ -1,8 +1,16 @@
 .our-designer {
+  position: relative;
   background-color: var(--white-dark);
   border-radius: 5px;
 
-  @media (max-width: 425px) {
+  &__hidden-anchor {
+    position: absolute;
+    top: -160px;
+    left: 0;
+
+    @media (max-width: 768px) {
+      top: -120px;
+    }
   }
 
   &__container {

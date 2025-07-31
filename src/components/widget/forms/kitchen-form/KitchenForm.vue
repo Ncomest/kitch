@@ -1,8 +1,9 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
-import CustopDropDown from "@/components/shared/drop-down/custom-drop-down/CustopDropDown.vue";
+
 import question from "@/json/ask-question.json";
+import CustomDropDown from "@/components/shared/drop-down/custom-drop-down/CustomDropDown.vue";
 
 const importQuestion = ref(question);
 const questionData = ref({});
@@ -18,45 +19,104 @@ const contactData = ref({
   projectFile: null,
 });
 
+const phoneTouched = ref(false);
+
+const formatPhone = () => {
+  let digits = contactData.value.phone.replace(/\D/g, "");
+
+  // Если начинается с 8, заменяем на +7
+  if (digits.startsWith("8")) {
+    digits = "7" + digits.slice(1);
+  }
+
+  // Если не начинается с 7, добавляем
+  if (!digits.startsWith("7")) {
+    digits = "7" + digits;
+  }
+
+  // Обрезаем до 11 цифр (без +)
+  digits = digits.slice(0, 11);
+
+  // Форматируем как +7 (XXX) XXX-XX-XX
+  let formatted = "+7";
+  if (digits.length > 1) formatted += " (" + digits.slice(1, 4);
+  if (digits.length >= 4) formatted += ") " + digits.slice(4, 7);
+  if (digits.length >= 7) formatted += "-" + digits.slice(7, 9);
+  if (digits.length >= 9) formatted += "-" + digits.slice(9, 11);
+
+  contactData.value.phone = formatted;
+};
+
+// Проверка на правильный формат: +7 и 10 цифр
+// const isValid = computed(() => {
+//   return /^\+7\d{10}$/.test(contactData.value.phone);
+// });
+
+// Проверка: номер должен быть в формате +7 (XXX) XXX-XX-XX
+const isValid = computed(() => {
+  return /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(contactData.value.phone);
+});
+
 const handleFileUpload = (e) => {
   contactData.value.projectFile = e.target.files[0];
 };
 
-const submitForm = () => {
-  if (!/^[\d\+][\d\(\)\ -]{10,11}\d$/.test(contactData.value.phone)) {
-    alert("Введите корректный номер телефона 8 (900) 000 00 00*");
-    return;
+const submitForm = async () => {
+  try {
+    // if (!/^[\d\+][\d\(\)\ -]{10,11}\d$/.test(contactData.value.phone)) {
+    //   alert("Введите корректный номер телефона 8 (900) 000 00 00*");
+    //   return;
+    // }
+
+    const formData = new FormData();
+
+    const formKitchen = [];
+
+    formData.append("firstName", contactData.value.firstName);
+    formData.append("lastName", contactData.value.lastName);
+    formData.append("phone", contactData.value.phone);
+
+    if (contactData.value.projectFile) {
+      formData.append("projectFile", contactData.value.projectFile);
+    }
+
+    // console.log(questionData.value);
+    for (const value of Object.values(questionData.value)) {
+      formKitchen.push(value);
+    }
+
+    formData.append("formKitchen", JSON.stringify(formKitchen));
+
+    const response = await fetch("http://localhost:4000/api/data", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(
+        errData.message || `HTTP error! status: ${response.status}`
+      );
+    }
+
+    const data = await response.json();
+    console.log("Сервер получил данные:", data.message);
+  } catch (error) {
+    console.error("Ошибка при отправке формы:", error.message);
+  } finally {
+    contactData.value = {
+      firstName: "",
+      lastName: "",
+      phone: "",
+      projectFile: null,
+    };
   }
-
-  const formData = new FormData();
-
-  formData.append("firstName", contactData.value.firstName);
-  formData.append("lastName", contactData.value.lastName);
-  formData.append("phone", contactData.value.phone);
-  formData.append("projectFile", contactData.value.projectFile);
-
-  // console.log(questionData.value);
-  for (const [key, value] of Object.entries(questionData.value)) {
-    formData.append(key, value);
-  }
-
-  for (const [key, value] of formData.entries()) {
-    console.log(key, value);
-  }
-
-  // TODO: отправка ...
-
-  contactData.value = {
-    firstName: "",
-    lastName: "",
-    phone: "",
-    projectFile: null,
-  };
 };
 </script>
 
 <template>
-  <section id="post-order">
+  <section class="kitchen-form-section">
+    <h2 class="kitchen-form-section__hidden-anchor" id="post-order"></h2>
     <form
       class="kitchen-form"
       enctype="multipart/form-data"
@@ -64,7 +124,8 @@ const submitForm = () => {
     >
       <div class="kitchen-form__content">
         <div class="kitchen-form__content-left">
-          <CustopDropDown
+          <legend class="kitchen-form__legend">Выберите данные кухни:</legend>
+          <CustomDropDown
             v-for="item in importQuestion"
             :question="item.question"
             :list="item.ask"
@@ -72,140 +133,6 @@ const submitForm = () => {
             :modelValue="item.answer"
             @update:modelValue="(value) => handleAnswer(item.question, value)"
           />
-          <!-- <fieldset class="kitchen-form__section">
-            <legend class="kitchen-form__legend">1. Форма кухни?</legend>
-            <label class="kitchen-form__option">
-              <input
-                type="radio"
-                name="kitchenShape"
-                value="угловая"
-                class="kitchen-form__radio"
-              />
-              Угловая
-            </label>
-            <label class="kitchen-form__option">
-              <input
-                type="radio"
-                name="kitchenShape"
-                value="прямая"
-                class="kitchen-form__radio"
-              />
-              Прямая
-            </label>
-            <label class="kitchen-form__option">
-              <input
-                type="radio"
-                name="kitchenShape"
-                value="п-образная"
-                class="kitchen-form__radio"
-              />
-              П-образная
-            </label>
-          </fieldset>
-
-          <fieldset class="kitchen-form__section">
-            <legend class="kitchen-form__legend">
-              2. Материал из которого будет изготовлена кухня?
-            </legend>
-            <label class="kitchen-form__option">
-              <input
-                type="checkbox"
-                name="material"
-                value="пластик"
-                class="kitchen-form__checkbox"
-              />
-              Пластик
-            </label>
-            <label class="kitchen-form__option">
-              <input
-                type="checkbox"
-                name="material"
-                value="лдсп"
-                class="kitchen-form__checkbox"
-              />
-              ЛДСП
-            </label>
-            <label class="kitchen-form__option">
-              <input
-                type="checkbox"
-                name="material"
-                value="пленка"
-                class="kitchen-form__checkbox"
-              />
-              Плёнка
-            </label>
-            <label class="kitchen-form__option">
-              <input
-                type="checkbox"
-                name="material"
-                value="консультация"
-                class="kitchen-form__checkbox"
-              />
-              Нужна консультация
-            </label>
-          </fieldset>
-
-          <fieldset class="kitchen-form__section">
-            <legend class="kitchen-form__legend">3. Срок изготовления?</legend>
-            <label class="kitchen-form__option">
-              <input
-                type="radio"
-                name="deadline"
-                value="1 месяц"
-                class="kitchen-form__radio"
-              />
-              В течение месяца
-            </label>
-            <label class="kitchen-form__option">
-              <input
-                type="radio"
-                name="deadline"
-                value="3 месяца"
-                class="kitchen-form__radio"
-              />
-              В течение 3 месяцев
-            </label>
-            <label class="kitchen-form__option">
-              <input
-                type="radio"
-                name="deadline"
-                value="от полугода"
-                class="kitchen-form__radio"
-              />
-              От полугода
-            </label>
-          </fieldset>
-
-          <fieldset class="kitchen-form__section">
-            <legend class="kitchen-form__legend">4. Бюджет?</legend>
-            <label class="kitchen-form__option">
-              <input
-                type="radio"
-                name="budget"
-                value="150-300"
-                class="kitchen-form__radio"
-              />
-              150–300 тысяч
-            </label>
-            <label class="kitchen-form__option">
-              <input
-                type="radio"
-                name="budget"
-                value="300-500"
-                class="kitchen-form__radio"
-              />
-              300–500 тысяч
-            </label>
-            <label class="kitchen-form__option">
-              <input
-                type="radio"
-                name="budget"
-                value="500+"
-                class="kitchen-form__radio"
-              />
-              От 500 и выше
-            </label>
-          </fieldset> -->
         </div>
 
         <div class="kitchen-form__content-right">
@@ -213,6 +140,12 @@ const submitForm = () => {
             <legend class="kitchen-form__legend">Контактные данные:</legend>
             <input
               type="text"
+              @input="
+                contactData.firstName = $event.target.value.replace(
+                  /[^A-Za-zА-Яа-яЁё]/g,
+                  ''
+                )
+              "
               name="firstName"
               placeholder="Имя*"
               class="kitchen-form__input"
@@ -221,6 +154,12 @@ const submitForm = () => {
             />
             <input
               type="text"
+              @input="
+                contactData.lastName = $event.target.value.replace(
+                  /[^A-Za-zА-Яа-яЁё]/g,
+                  ''
+                )
+              "
               name="lastName"
               placeholder="Фамилия*"
               class="kitchen-form__input"
@@ -228,13 +167,22 @@ const submitForm = () => {
               required
             />
             <input
+              @input="formatPhone"
+              @blur="phoneTouched = true"
+              @focus="phoneTouched = false"
               type="tel"
               name="phone"
-              placeholder="8 (900) 000 00 00*"
+              placeholder="+7 (___) ___-__-__"
               class="kitchen-form__input"
               v-model="contactData.phone"
               required
             />
+            <p
+              v-if="phoneTouched && !isValid"
+              class="kitchen-form__number-error"
+            >
+              ❌ Неверно введен номер
+            </p>
           </fieldset>
 
           <div class="kitchen-form__section">
@@ -244,6 +192,7 @@ const submitForm = () => {
                 name="projectFile"
                 class="kitchen-form__file"
                 @change="handleFileUpload"
+                accept="image/*,.pdf,.doc,.docx,.png,.jpg,.jpeg"
               />
             </label>
           </div>

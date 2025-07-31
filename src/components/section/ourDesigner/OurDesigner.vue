@@ -1,6 +1,7 @@
 <script></script>
 <template>
-  <section class="our-designer" id="about-us">
+  <section class="our-designer">
+    <h2 class="our-designer__hidden-anchor" id="about-us"></h2>
     <div class="our-designer__card designer-card">
       <div class="designer-card__photo">
         <img src="/designer/designer_2.webp" alt="Фото дизайнера" />

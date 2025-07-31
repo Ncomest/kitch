@@ -1,7 +1,7 @@
 .swiper {
   &__image-wrapper {
-    // height: 450px;
     border-radius: 5px;
+    width: 100%;
   }
 }
 
@@ -9,3 +9,5 @@
   background-color: (var(--white-dark));
   border: 1px solid var(--dark-gray);
 }
+
+

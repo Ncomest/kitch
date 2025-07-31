@@ -8,6 +8,7 @@
 
 .selected-value {
   text-align: start;
+  color: var(--middle-gray);
 }
 
 .select-button {
@@ -60,7 +61,6 @@
   background-color: var(--white);
   z-index: 50;
   border-bottom: 1px solid var(--light-gray);
-  text-transform: capitalize;
 }
 /* Highlight the selected option */
 .select-dropdown li.selected {
