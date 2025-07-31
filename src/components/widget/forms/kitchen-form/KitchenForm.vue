@@ -234,8 +234,8 @@ const submitForm = async () => {
               @focus="phoneTouched = false"
               type="tel"
               name="phone"
-              placeholder="+7 (___) ___-__-__"
-              class="kitchen-form__input"
+              placeholder="+7 ( ___ ) ___ / __ / __"
+              class="kitchen-form__input kitchen-form__input--number"
               v-model="contactData.phone"
               required
             />

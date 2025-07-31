@@ -115,6 +115,11 @@
       border-color: #007bff;
       outline: none;
     }
+
+    &--number{
+      letter-spacing: 4px;
+    }
+
   }
 
   &__number-error {
