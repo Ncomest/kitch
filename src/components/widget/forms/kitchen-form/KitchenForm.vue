@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onUnmounted, ref } from "vue";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 import question from "@/json/ask-question.json";
 import CustomDropDown from "@/components/shared/drop-down/custom-drop-down/CustomDropDown.vue";
@@ -93,7 +94,7 @@ const submitForm = async () => {
 
     formData.append("formKitchen", JSON.stringify(formKitchen));
 
-    const response = await fetch("http://localhost:4000/api/data", {
+    const response = await fetch(`${apiUrl}/api/send-to-telegram`, {
       method: "POST",
       body: formData,
     });
@@ -109,10 +110,10 @@ const submitForm = async () => {
     console.log("Сервер получил данные:", data.message);
 
     if (data)
-      showPopUpMessage("Заявка отправлена, с Вами скоро свяжутся!", true);
+      showPopUpMessage("Заявка отправлена.\nC Вами скоро свяжутся!", true);
   } catch (error) {
     console.error("Ошибка при отправке формы:", error.message);
-    if (error) showPopUpMessage("Упс...Что-то пошло не так!", false);
+    if (error) showPopUpMessage("Упс...Что-то пошло не так! Попробуйте позже!", false);
   } finally {
     contactData.value = {
       firstName: "",

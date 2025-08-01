@@ -116,10 +116,9 @@
       outline: none;
     }
 
-    &--number{
+    &--number {
       letter-spacing: 4px;
     }
-
   }
 
   &__number-error {
@@ -214,7 +213,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
-    max-width: 300px;
+    max-width: 320px;
     width: 100%;
     background-color: var(--white-dark);
     padding: 20px 40px;
@@ -237,6 +236,5 @@
   &__popup-title {
     font-weight: var(--font-weigth-s);
     font-size: var(--font-size-m);
-    text-wrap: nowrap;
   }
 }
