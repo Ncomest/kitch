@@ -84,8 +84,8 @@ import TheBurger from "@components/shared/buttons/burger/TheBurger.vue";
             />
           </g></svg
       ></span>
-      <a class="the-header__number" href="tel:+789009808080"
-        >8 (900) 980 80 80</a
+      <a class="the-header__number" href="tel:+79952510712"
+        >+7 (995) 251-07-12</a
       >
     </div>
     <TheBurger />

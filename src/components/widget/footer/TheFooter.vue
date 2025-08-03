@@ -73,8 +73,8 @@
                 />
               </g></svg
           ></span>
-          <a class="the-footer__link" href="tel:+79991234567"
-            >8 (900) 900 00 00</a
+          <a class="the-footer__link" href="tel:+79952510712"
+            >+7 (995) 251-07-12</a
           >
         </div>
         <div class="the-footer__meta-container">
@@ -109,7 +109,7 @@
           ></span>
           <a
             class="the-footer__link"
-            href="https://t.me/username"
+            href="https://t.me/GrafKukh"
             target="_blank"
             >Telegram</a
           >
@@ -130,7 +130,7 @@
           ></span>
           <a
             class="the-footer__link"
-            href="https://vk.com/username"
+            href="https://vk.com/kitchen_kupit"
             target="_blank"
             >VKontakte</a
           >
@@ -166,7 +166,7 @@
           ></span>
           <a
             class="the-footer__link"
-            href="https://wa.me/79991234567"
+            href="https://wa.me/799952510712"
             target="_blank"
             >What's App</a
           >
@@ -210,7 +210,7 @@
 	c4.499,0,10.466,6.403,10.466,11.235v2.942H121.319v-2.942C121.319,141.9,127.286,135.497,131.786,135.497z"
               /></svg
           ></span>
-          <a class="the-footer__link" href="mailto:example@mail.com">E-mail</a>
+          <a class="the-footer__link" href="mailto:graf.kukh@bk.ru">E-mail</a>
         </div>
       </div>
     </div>
