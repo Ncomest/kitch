@@ -33,6 +33,8 @@ const handleAnswer = (question, answer) => {
   questionData.value[question] = answer;
 };
 
+const fileInput = ref(null);
+
 const contactData = ref({
   firstName: "",
   lastName: "",
@@ -113,7 +115,8 @@ const submitForm = async () => {
       showPopUpMessage("Заявка отправлена.\nC Вами скоро свяжутся!", true);
   } catch (error) {
     console.error("Ошибка при отправке формы:", error.message);
-    if (error) showPopUpMessage("Упс...Что-то пошло не так! Попробуйте позже!", false);
+    if (error)
+      showPopUpMessage("Упс...Что-то пошло не так! Попробуйте позже!", false);
   } finally {
     contactData.value = {
       firstName: "",
@@ -124,6 +127,10 @@ const submitForm = async () => {
 
     questionData.value = {};
     phoneTouched.value = false;
+
+    if (fileInput.value) {
+      fileInput.value.value = "";
+    }
   }
 };
 </script>
@@ -256,6 +263,7 @@ const submitForm = async () => {
                 class="kitchen-form__file"
                 @change="handleFileUpload"
                 accept="image/*,.pdf,.doc,.docx,.png,.jpg,.jpeg"
+                ref="fileInput"
               />
             </label>
           </div>

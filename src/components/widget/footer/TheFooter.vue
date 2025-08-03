@@ -166,7 +166,7 @@
           ></span>
           <a
             class="the-footer__link"
-            href="https://wa.me/799952510712"
+            href="https://wa.me/79952510712"
             target="_blank"
             >What's App</a
           >

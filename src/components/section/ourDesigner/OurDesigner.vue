@@ -4,32 +4,32 @@
     <h2 class="our-designer__hidden-anchor" id="about-us"></h2>
     <div class="our-designer__card designer-card">
       <div class="designer-card__photo">
-        <img src="/designer/designer_2.webp" alt="Фото дизайнера" />
+        <img src="/designer/designer_2_11zon.webp" alt="Фото дизайнера" />
       </div>
 
       <div class="designer-card__info">
         <h3 class="designer-card__name">Кристина Палютина</h3>
         <div class="designer-card__skills">
           <p class="designer-card__text">
-            <span>Специализация:</span> дизайн кухонь под заказ, планировка
-            и эргономика, подбор материалов и фурнитуры, визуализация проектов.
+            <span>Специализация:</span> дизайн кухонь под заказ, планировка и
+            эргономика, подбор материалов и фурнитуры, визуализация проектов.
           </p>
 
           <p class="designer-card__text">
-            <span>Опыт работы:</span> более 7 лет в сфере интерьерного
-            дизайна, более 150 реализованных проектов кухонь — от компактных
-            студий до премиальных решений.
+            <span>Опыт работы:</span> более 7 лет в сфере интерьерного дизайна,
+            более 150 реализованных проектов кухонь — от компактных студий до
+            премиальных решений.
           </p>
 
           <p class="designer-card__text">
-            <span>Профессиональные навыки:</span> разработка функциональных
-            и эстетичных решений, работа с индивидуальными заказами,
-            сопровождение клиента от идеи до монтажа.
+            <span>Профессиональные навыки:</span> разработка функциональных и
+            эстетичных решений, работа с индивидуальными заказами, сопровождение
+            клиента от идеи до монтажа.
           </p>
 
           <p class="designer-card__text">
-            <span>Используемые программы:</span> AutoCAD, SketchUp, 3ds Max
-            + V-Ray, Blender, Adobe Photoshop, Figma.
+            <span>Используемые программы:</span> AutoCAD, SketchUp, 3ds Max +
+            V-Ray, Blender, Adobe Photoshop, Figma.
           </p>
 
           <div class="designer-card__text">
